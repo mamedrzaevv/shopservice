@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Редактирование товара</title></titlr>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a style="font-size: 40px; margin-left: -100px;">Редактирование товара</a>
+        <div class="ms-auto">
+            <a class="btn btn-sm btn-outline-secondary" href="/">Главная страница</a>
+        </div>
+    </div>
+</nav>
+<div class="container mx-3 mt-3">
+    <div th:each="item : ${item}">
+        <form method="post">
+            <input type="text" th:value="${item.name}" name="name" placeholder="Введите название товара" class="form-control mt-3">
+            <input type="text" th:value="${item.price}" name="price" placeholder="Введите стоимость товара" class="form-control mt-2">
+            <button type="submit" class="btn btn-success mt-2">Обновить товар</button>
+        </form>
+    </div>
+</div>
+</a>
+</body>
+</html>

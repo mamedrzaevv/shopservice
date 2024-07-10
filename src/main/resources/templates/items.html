@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Список товаров</title></titlr>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a style="font-size: 40px; margin-left: -100px;">Список товаров</a>
+        <div class="ms-auto">
+            <a class="btn btn-sm btn-outline-secondary" href="/">Главная страница</a>
+        </div>
+    </div>
+</nav>
+<div class="container mx-3 mt-3">
+    <div th:each="item : ${items}" class = "alert alert-info mt-3">
+        <h3 th:text="${item.name}"/>
+        <p th:text="${item.price+' рублей'}"/>
+        <div class="d-flex">
+            <a th:href="'/item/' + ${item.id} + '/edit'" class="btn btn-warning mr-2">Редактировать</a>
+            <form th:action="'/item/' + ${item.id} + '/remove'" method="post" class="d-inline-block">
+                <button class="btn btn-warning" type="submit">Удалить</button>
+            </form>
+        </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
